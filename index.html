@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Etiketleri -->
+    <title>Candy Veteriner Kliniği | 7/24 Acil Veteriner - Beşiktaş, İstanbul</title>
+    <meta name="description" content="İstanbul Beşiktaş'ta 7/24 açık acil veteriner kliniği. Candy Veteriner Kliniği'nde Oğuzhan Bey ve uzman ekibimizle kedi, köpek ve tüm sevimli dostlarınız için güvenilir tedavi.">
+    <meta name="keywords" content="veteriner, acil veteriner, beşiktaş veteriner, gayrettepe veteriner, 7/24 veteriner, candy veteriner kliniği, kedi kısırlaştırma, köpek aşılama, istanbul veteriner, oğuzhan bey veteriner">
+    <meta name="author" content="Candy Veteriner Kliniği">
+    
+    <!-- Open Graph (Sosyal Medya Paylaşım Görünümleri) -->
+    <meta property="og:title" content="Candy Veteriner Kliniği | 7/24 Uzman Bakım">
+    <meta property="og:description" content="Sevimli dostlarınız için 7 gün 24 saat kesintisiz, şefkatli ve profesyonel veterinerlik hizmeti.">
+    <meta property="og:image" content="logo.jpg">
+    <meta property="og:url" content="https://www.candyveteriner.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* CSS Değişkenleri & Kurumsal Renkler (Tabeladan Alınmıştır) */
+        :root {
+            --primary-color: #f26b6b; /* Tabeladaki tatlı kırmızı/mercan tonu */
+            --primary-hover: #d95353;
+            --secondary-color: #555759; /* Tabeladaki gri şerit rengi */
+            --dark-color: #2b2b2b;
+            --light-color: #f8f9fa;
+            --white: #ffffff;
+            --transition: all 0.3s ease-in-out;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ----- Navbar ----- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span.brand {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .logo-text span.sub {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary-color);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(242, 107, 107, 0.4);
+        }
+        
+        .nav-cta::after { display: none; }
+        .nav-cta:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* ----- Hero Section ----- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 5% 50px;
+            background: linear-gradient(135deg, #fffafa 0%, #fef1f1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(242, 107, 107, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(242, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(242, 107, 107, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--dark-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Dekoratif Şekiller */
+        .shape-1 {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* ----- Features / Info Cards ----- */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 5%;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        /* ----- About Section ----- */
+        .about {
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(242, 107, 107, 0.4);
+        }
+
+        .experience-badge h4 {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .section-subtitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .about-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        .about-list li i {
+            color: #27ae60;
+            font-size: 1.2rem;
+            background: rgba(39, 174, 96, 0.1);
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        /* ----- Reviews Section ----- */
+        .reviews {
+            padding: 100px 5%;
+            background: var(--light-color);
+            text-align: center;
+        }
+
+        .reviews .section-title {
+            margin-bottom: 50px;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            text-align: left;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .fa-quote-left {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: rgba(242, 107, 107, 0.1);
+        }
+
+        .stars {
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .reviewer-date {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* ----- Call to Action Banner ----- */
+        .cta-banner {
+            background: linear-gradient(rgba(43, 43, 43, 0.9), rgba(43, 43, 43, 0.9)), url('https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&q=80&w=2070') center/cover;
+            padding: 80px 5%;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* ----- Footer & Contact ----- */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 80px 5% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .footer-col p, .footer-col a {
+            color: #bbb;
+            text-decoration: none;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-col i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* ----- Sosyal Medya İkonları ----- */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: inline-flex !important;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-bottom: 0 !important;
+            padding: 0;
+        }
+
+        .social-links a i {
+            margin-top: 0 !important;
+            color: var(--white) !important;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* ----- Floating Action Buttons (FAB) ----- */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .fab-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .fab-btn.whatsapp {
+            background-color: #25D366;
+        }
+
+        .fab-btn.phone {
+            background-color: var(--primary-color);
+        }
+
+        .fab-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip for FAB */
+        .fab-btn::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 75px;
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .fab-btn:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ----- Unal Partnerlik Watermark ----- */
+        .unal-watermark {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: rgba(26, 28, 44, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 10px 18px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 10000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            border-left: 4px solid #f1c40f; /* Altın sarısı vurgu */
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .unal-watermark:hover {
+            transform: translateY(-3px);
+            background: rgba(26, 28, 44, 1);
+        }
+
+        .unal-watermark img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .unal-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .unal-text .title {
+            color: #f1c40f;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .unal-text .subtitle {
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* ----- Responsive Design ----- */
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 130px; }
+            .hero-content { margin-bottom: 50px; }
+            .hero-buttons { justify-content: center; }
+            .about { flex-direction: column; }
+            .experience-badge { bottom: 0; right: 0; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav ul {
+                position: absolute;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                text-align: center;
+                gap: 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                transition: var(--transition);
+            }
+            nav ul.active { left: 0; }
+            nav ul li { margin: 0; }
+            nav ul li a { display: block; padding: 20px; border-bottom: 1px solid #eee; }
+            nav ul li a.nav-cta { margin: 20px; display: inline-block; }
+            .mobile-menu-btn { display: block; }
+            
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            
+            .unal-watermark {
+                bottom: 15px;
+                left: 15px;
+                padding: 8px 12px;
+            }
+            .unal-watermark img { width: 30px; height: 30px; }
+            .unal-text .title { font-size: 0.75rem; }
+            .unal-text .subtitle { font-size: 0.65rem; }
+
+            .fab-container { bottom: 20px; right: 20px; }
+            .fab-btn { width: 50px; height: 50px; font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ünal Partnerlik Filigranı (Sol Alt) -->
+    <a href="#" class="unal-watermark" aria-label="Unal Partnerlik Demo">
+        <img src="unal.jpg" alt="Unal Partnerlik Logosu">
+        <div class="unal-text">
+            <span class="title">UNAL PARTNERLİK</span>
+            <span class="subtitle">DEMO WEBSİTESİDİR</span>
+        </div>
+    </a>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <a href="#" class="logo-container">
+            <img src="logo.jpg" alt="Candy Veteriner Kliniği Logo">
+            <div class="logo-text">
+                <span class="brand">CANDY</span>
+                <span class="sub">VETERİNER KLİNİĞİ</span>
+            </div>
+        </a>
+        
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#anasayfa">Ana Sayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                <li><a href="#yorumlar">Yorumlar</a></li>
+                <li><a href="tel:02122882441" class="nav-cta">Hemen Ara</a></li>
+            </ul>
+        </nav>
+        
+        <div class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="anasayfa">
+        <div class="shape-1"></div>
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+            <div class="hero-badge">🐾 7/24 Kesintisiz Hizmet</div>
+            <h1>Sevimli Dostlarınız İçin <span>En İyi Bakım</span></h1>
+            <p>İstanbul Beşiktaş'ta, Oğuzhan Bey ve uzman ekibiyle kedi, köpek ve tüm evcil hayvanlarınız için sevgi dolu, modern ve güvenilir veterinerlik hizmeti sunuyoruz.</p>
+            <div class="hero-buttons">
+                <!-- 0212 numara -> Sabit hat araması -->
+                <a href="tel:02122882441" class="btn btn-primary"><i class="fas fa-phone-alt"></i> 0212 288 24 41</a>
+                <!-- 0539 numara -> Acil durum, arama açar -->
+                <a href="tel:05394843200" class="btn btn-outline"><i class="fas fa-ambulance"></i> Acil Hattı Ara</a>
+            </div>
+        </div>
+        <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <!-- Temsili şirin köpek/veteriner görseli -->
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=1000" alt="Veteriner Muayenesi">
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="info-cards">
+        <div class="info-card" data-aos="fade-up" data-aos-duration="800">
+            <i class="fas fa-user-md"></i>
+            <div>
+                <h3>Uzman Kadro</h3>
+                <p>11 yılı aşkın tecrübesiyle Oğuzhan Bey ve profesyonel ekibimiz.</p>
+            </div>
+        </div>
+        <div class="info-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+            <i class="fas fa-clock"></i>
+            <div>
+                <h3>7/24 Acil Servis</h3>
+                <p>Günün her saati, acil müdahaleler için tam donanımlı hazırız.</p>
+            </div>
+        </div>
+        <div class="info-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <i class="fas fa-microscope"></i>
+            <div>
+                <h3>Modern Teknoloji</h3>
+                <p>Gelişmiş laboratuvar ve teknolojik görüntüleme sistemleri.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="hakkimizda">
+        <div class="about-img" data-aos="fade-right" data-aos-duration="1000">
+            <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&q=80&w=1000" alt="Veteriner Kliniği İçi">
+            <div class="experience-badge">
+                <h4>11+</h4>
+                <span>Yıllık<br>Tecrübe</span>
+            </div>
+        </div>
+        <div class="about-content" data-aos="fade-left" data-aos-duration="1000">
+            <span class="section-subtitle">Hakkımızda</span>
+            <h2 class="section-title">Ailenizin Bir Parçasına Kendi Evladımız Gibi Bakıyoruz</h2>
+            <p>Candy Veteriner Kliniği olarak, evcil hayvanlarınızın sağlığını en az sizin kadar önemsiyoruz. İstanbul Beşiktaş'ta yer alan tam donanımlı kliniğimizde, modern tıbbın sunduğu tüm imkanları sevgi ve şefkatle harmanlıyoruz.</p>
+            <p>Kurucumuz Oğuzhan Bey öncülüğünde, kısırlaştırma operasyonlarından rutin aşılara, karmaşık cerrahi müdahalelerden diş bakımına kadar geniş bir yelpazede hizmet veriyoruz.</p>
+            <ul class="about-list">
+                <li><i class="fas fa-check"></i> Şeffaf ve Güvenilir Teşhis Süreçleri</li>
+                <li><i class="fas fa-check"></i> Hijyenik ve Konforlu Yatılı Bakım Üniteleri</li>
+                <li><i class="fas fa-check"></i> Yüksek Müşteri ve Hasta Memnuniyeti</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="yorumlar">
+        <span class="section-subtitle">Müşteri Yorumları</span>
+        <h2 class="section-title">Bizi Dostlarımızdan Dinleyin</h2>
+        
+        <div class="review-grid">
+            <!-- Yorum 1 -->
+            <div class="review-card" data-aos="zoom-in" data-aos-duration="800">
+                <i class="fas fa-quote-left"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"11 yıldır kedimin veterineri olan Oğuzhan Bey'i gönül rahatlığıyla tavsiye ediyorum. Kedimin kısırlaştırma ameliyatı dahil bugüne kadar yaşadığımız her sağlık probleminde yanımızdaydı."</p>
+                <div class="reviewer-name">Sema Uysaler</div>
+                <div class="reviewer-date">Google Değerlendirmesi</div>
+            </div>
+            
+            <!-- Yorum 2 -->
+            <div class="review-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="150">
+                <i class="fas fa-quote-left"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"3 senedir veterinerimiz, çok memnunuz. Hem çalışanlar hem de Oğuz Bey inanılmaz ilgili ve sabırlı. Her sorumuzu bıkmadan yanıtlıyorlar, dostlarımıza çok iyi bakıyorlar."</p>
+                <div class="reviewer-name">Melisa</div>
+                <div class="reviewer-date">Google Değerlendirmesi</div>
+            </div>
+            
+            <!-- Yorum 3 -->
+            <div class="review-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+                <i class="fas fa-quote-left"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"İşinde çok başarılı, tanıdığım en iyi veteriner Oğuzhan Bey. Kliniğin hijyeni, personelin güler yüzü ve profesyonellikleri gerçekten takdire şayan."</p>
+                <div class="reviewer-name">Ebru Demir</div>
+                <div class="reviewer-date">Google Değerlendirmesi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action Banner -->
+    <section class="cta-banner" data-aos="fade-up" data-aos-duration="1000">
+        <h2>Acil Bir Durum Mu Var?</h2>
+        <p>Günün hangi saati olursa olsun, sevimli dostunuz için buradayız. Hemen bizi arayın.</p>
+        <a href="tel:05394843200" class="btn btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">
+            <i class="fas fa-phone-volume"></i> ACİL YARDIM ÇAĞIR: 0539 484 32 00
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="iletisim">
+        <div class="footer-grid">
+            <div class="footer-col" data-aos="fade-up">
+                <div class="logo-container" style="margin-bottom: 20px;">
+                    <img src="logo.jpg" alt="Candy Veteriner Logo" style="background: white;">
+                    <div class="logo-text">
+                        <span class="brand" style="color: white;">CANDY</span>
+                        <span class="sub" style="color: #bbb;">VETERİNER KLİNİĞİ</span>
+                    </div>
+                </div>
+                <p>Can dostlarınızın sağlığı ve mutluluğu için en güncel veteriner hekimlik uygulamaları ile 7/24 hizmetinizdeyiz.</p>
+                
+                <!-- Sosyal Medya Linkleri -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/candyveterinerklinigi/?hl=en" target="_blank" aria-label="Instagram'da Bizi Takip Edin">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/candyvet.net/" target="_blank" aria-label="Facebook Sayfamız">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                <h3>İletişim Bilgileri</h3>
+                <a href="tel:02122882441"><i class="fas fa-phone"></i> (0212) 288 24 41 (Klinik)</a>
+                <a href="tel:05394843200"><i class="fas fa-mobile-alt"></i> 0539 484 32 00 (Acil Hattı)</a>
+                <a href="tel:02122309111"><i class="fas fa-phone-square-alt"></i> (0212) 230 91 11 (Alternatif)</a>
+                <p><i class="fas fa-map-marker-alt"></i> Gayrettepe Mah. Yıldız Posta Cad. Süleymanbey Sok. Gülkar apt. No:11/2 <br> Gayrettepe - 34000, Beşiktaş/İstanbul</p>
+            </div>
+            
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                <h3>Çalışma Saatleri</h3>
+                <p><i class="fas fa-clock"></i> Pazartesi - Pazar</p>
+                <p style="color: var(--primary-color); font-weight: bold; font-size: 1.2rem; margin-left: 30px;">7/24 AÇIK</p>
+                <p>Acil durumlar için gece gündüz nöbetçi veteriner hekimimiz bulunmaktadır.</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Candy Veteriner Kliniği. Tüm Hakları Saklıdır. Profesyonelce tasarlanmıştır.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons (Sağ Alt) -->
+    <div class="fab-container">
+        <!-- 05... numara için WhatsApp Yönlendirmesi -->
+        <a href="https://wa.me/905394843200?text=Merhaba,%20veteriner%20kliniğinizden%20bilgi%20almak%20istiyorum." target="_blank" class="fab-btn whatsapp" data-tooltip="WhatsApp'tan Yazın">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <!-- Sabit numara için Arama Yönlendirmesi -->
+        <a href="tel:02122882441" class="fab-btn phone" data-tooltip="Kliniği Arayın">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Animasyonlarını Başlat
+        AOS.init({
+            once: true, // Animasyon sadece bir kere çalışsın
+            offset: 100, // Ekrana girmeden 100px önce başlasın
+        });
+
+        // Mobil Menü Açma/Kapama İşlemi
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Menü linklerine tıklandığında menüyü kapat (Mobilde)
+        document.querySelectorAll('#nav-links li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-links').classList.remove('active');
+            });
+        });
+
+        // Header Scroll Efekti (Aşağı kaydırınca gölge ekle)
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.style.padding = '10px 5%';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.05)';
+                header.style.padding = '15px 5%';
+            }
+        });
+    </script>
+</body>
+</html>
